@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Learning Roadmaps - Coders' Journey</title>
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
+
 <body>
   <nav class="navbar">
     <div class="nav-brand"><a href="index.html">Coders' Journey</a></div>
@@ -13,7 +15,12 @@
       <a href="roadmaps.html" class="active">Roadmaps</a>
       <a href="ask.html">Ask Question</a>
     </div>
-    <div class="nav-auth" id="nav-auth"></div>
+    <div class="nav-auth">
+      <a href="login.html" class="btn btn-primary"
+        style="background: linear-gradient(135deg, var(--danger), hsl(0, 84%, 50%));">🚪 Logout</a>
+      <a href="profile.html" class="btn btn-primary" style="margin-left: 10px;">👤 Profile</a>
+      <div id="nav-auth"></div>
+    </div>
   </nav>
 
   <div class="container main-layout">
@@ -33,12 +40,16 @@
 
       <div class="card" style="margin-bottom: 20px;">
         <h3 style="margin-bottom: 8px;">Generate a Roadmap</h3>
-        <p class="text-muted" style="margin-bottom: 12px;">Describe what you want to learn, and we’ll create a step-by-step plan.</p>
+        <p class="text-muted" style="margin-bottom: 12px;">Describe what you want to learn, and we’ll create a
+          step-by-step plan.</p>
 
-        <div id="gen-error" style="display:none; background: #f8d7da; color: #721c24; padding: 10px; border-radius: 4px; margin-bottom: 12px;"></div>
+        <div id="gen-error"
+          style="display:none; background: #f8d7da; color: #721c24; padding: 10px; border-radius: 4px; margin-bottom: 12px;">
+        </div>
 
         <form id="gen-form" style="display:flex; gap: 10px; align-items: center;">
-          <input id="gen-goal" name="goal" type="text" placeholder="e.g., become a frontend developer" style="flex: 1;" required />
+          <input id="gen-goal" name="goal" type="text" placeholder="e.g., become a frontend developer" style="flex: 1;"
+            required />
           <button id="gen-btn" type="submit" class="btn btn-primary" style="white-space: nowrap;">Generate</button>
         </form>
       </div>
@@ -54,4 +65,5 @@
 
   <script type="module" src="assets/js/page-roadmaps.js"></script>
 </body>
+
 </html>

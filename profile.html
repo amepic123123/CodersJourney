@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,14 +9,21 @@
 
   <style>
     .profile-header {
-      background: white;
-      border: 1px solid #e1e4e8;
+      background: linear-gradient(135deg, #1a1024, #2a1457);
+      border: 1px solid rgba(180, 80, 255, 0.75);
       border-radius: 8px;
       padding: 2rem;
       display: flex;
       align-items: center;
       margin-bottom: 2rem;
+
+      /* neon purple glow */
+      box-shadow:
+        0 0 8px rgba(180, 80, 255, 0.6),
+        0 0 18px rgba(180, 80, 255, 0.45),
+        0 0 40px rgba(180, 80, 255, 0.25);
     }
+
     .profile-avatar {
       width: 100px;
       height: 100px;
@@ -28,16 +36,27 @@
       font-weight: bold;
       margin-right: 2rem;
     }
+
     .profile-stats {
       display: flex;
       gap: 2rem;
       margin-top: 1rem;
     }
+
     .stat-item {
       text-align: center;
     }
-    .stat-val { font-size: 1.2rem; font-weight: bold; display: block; }
-    .stat-label { font-size: 0.9rem; color: #666; }
+
+    .stat-val {
+      font-size: 1.2rem;
+      font-weight: bold;
+      display: block;
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      color: #666;
+    }
 
     .mini-progress {
       background: #eee;
@@ -47,12 +66,14 @@
       margin-top: 5px;
       overflow: hidden;
     }
+
     .mini-fill {
       background: #27ae60;
       height: 100%;
     }
   </style>
 </head>
+
 <body>
   <nav class="navbar">
     <div class="nav-brand"><a href="index.html">Coders' Journey</a></div>
@@ -60,7 +81,12 @@
       <a href="roadmaps.html">Roadmaps</a>
       <a href="ask.html">Ask Question</a>
     </div>
-    <div class="nav-auth" id="nav-auth"></div>
+    <div class="nav-auth">
+      <a href="login.html" class="btn btn-primary"
+        style="background: linear-gradient(135deg, var(--danger), hsl(0, 84%, 50%));">🚪 Logout</a>
+      <a href="profile.html" class="btn btn-primary" style="margin-left: 10px;">👤 Profile</a>
+      <div id="nav-auth"></div>
+    </div>
   </nav>
 
   <div class="container main-layout">
@@ -79,7 +105,8 @@
         <div style="flex-grow: 1;">
           <h1 style="margin: 0;">
             <span id="profile-username">User</span>
-            <span id="profile-verified" title="Verified" style="font-size: 1rem; vertical-align: middle; display:none;">✅</span>
+            <span id="profile-verified" title="Verified"
+              style="font-size: 1rem; vertical-align: middle; display:none;">✅</span>
           </h1>
           <p style="color: #666; margin: 5px 0;">Member since <span id="profile-joined">—</span></p>
 
@@ -101,16 +128,6 @@
       </div>
 
       <div class="card" style="margin-bottom: 2rem;">
-        <h3>🖼️ Profile Image</h3>
-        <form id="avatar-form" style="display:flex; gap:12px; align-items:center; flex-wrap: wrap; margin-top: 10px;">
-          <input id="avatar-file" name="image" type="file" accept="image/png,image/jpeg,image/webp" />
-          <button class="btn btn-primary" type="submit">Upload</button>
-          <span id="avatar-status" class="text-muted" style="display:none;"></span>
-        </form>
-        <p class="text-muted" style="margin-top:8px;">PNG/JPG/WEBP, max 2MB.</p>
-      </div>
-
-      <div class="card" style="margin-bottom: 2rem;">
         <h3>📚 In Progress Roadmaps</h3>
         <div id="profile-roadmaps"></div>
       </div>
@@ -128,4 +145,5 @@
 
   <script type="module" src="assets/js/page-profile.js"></script>
 </body>
+
 </html>

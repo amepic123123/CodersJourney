@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -16,12 +17,14 @@
       margin: 20px 0;
       overflow: hidden;
     }
+
     .progress-bar {
       background: #27ae60;
       height: 100%;
       width: 0%;
       transition: width 0.3s ease;
     }
+
     .progress-text {
       text-align: right;
       font-size: 0.9rem;
@@ -35,6 +38,7 @@
       padding: 0;
       position: relative;
     }
+
     /* The vertical line */
     .step-list::before {
       content: '';
@@ -46,6 +50,7 @@
       background: #e1e4e8;
       z-index: 0;
     }
+
     .step-item {
       display: flex;
       align-items: flex-start;
@@ -53,6 +58,7 @@
       position: relative;
       z-index: 1;
     }
+
     .step-checkbox {
       width: 40px;
       height: 40px;
@@ -60,12 +66,14 @@
       cursor: pointer;
       z-index: 2;
     }
+
     input[type="checkbox"] {
       width: 20px;
       height: 20px;
       margin-top: 5px;
       cursor: pointer;
     }
+
     .step-content {
       background: white;
       padding: 1.5rem;
@@ -73,16 +81,19 @@
       border-radius: 8px;
       flex-grow: 1;
     }
+
     .step-title {
       margin: 0 0 5px 0;
       font-size: 1.1rem;
     }
+
     .step-desc {
       color: #666;
       font-size: 0.9rem;
     }
   </style>
 </head>
+
 <body>
   <nav class="navbar">
     <div class="nav-brand"><a href="index.html">Coders' Journey</a></div>
@@ -90,7 +101,12 @@
       <a href="roadmaps.html" class="active">Roadmaps</a>
       <a href="ask.html">Ask Question</a>
     </div>
-    <div class="nav-auth" id="nav-auth"></div>
+    <div class="nav-auth">
+      <a href="login.html" class="btn btn-primary"
+        style="background: linear-gradient(135deg, var(--danger), hsl(0, 84%, 50%));">🚪 Logout</a>
+      <a href="profile.html" class="btn btn-primary" style="margin-left: 10px;">👤 Profile</a>
+      <div id="nav-auth"></div>
+    </div>
   </nav>
 
   <div class="container main-layout">
@@ -133,4 +149,5 @@
 
   <script type="module" src="assets/js/page-roadmap-view.js"></script>
 </body>
+
 </html>

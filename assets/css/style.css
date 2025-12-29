@@ -1,0 +1,679 @@
+/* =========================================
+   MODERN DARK THEME - GLASSMORPHISM DESIGN
+   ========================================= */
+
+/* =========================================
+   1. GLOBAL VARIABLES & RESET
+   ========================================= */
+:root {
+    /* Dark Theme Colors */
+    --primary: hsl(210, 100%, 60%);
+    /* Vibrant Blue */
+    --primary-dark: hsl(210, 100%, 50%);
+    --primary-light: hsl(210, 100%, 70%);
+
+    --secondary: hsl(280, 70%, 60%);
+    /* Purple accent */
+    --secondary-dark: hsl(280, 70%, 50%);
+
+    --success: hsl(142, 71%, 45%);
+    /* Green */
+    --danger: hsl(0, 84%, 60%);
+    /* Red */
+    --warning: hsl(38, 92%, 50%);
+    /* Orange */
+
+    /* Dark Backgrounds */
+    --bg-body: hsl(220, 15%, 10%);
+    /* Very dark blue-grey */
+    --bg-card: hsla(220, 15%, 15%, 0.6);
+    /* Semi-transparent dark */
+    --bg-card-hover: hsla(220, 15%, 18%, 0.7);
+
+    /* Text */
+    --text-main: hsl(0, 0%, 95%);
+    --text-muted: hsl(0, 0%, 60%);
+    --text-inverse: hsl(220, 15%, 10%);
+
+    /* Borders & Effects */
+    --border: hsla(220, 15%, 35%, 0.3);
+    --border-light: hsla(220, 15%, 50%, 0.2);
+    --glow-primary: 0 0 20px hsla(210, 100%, 60%, 0.3);
+    --glow-secondary: 0 0 20px hsla(280, 70%, 60%, 0.3);
+    --shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    --radius: 12px;
+
+    /* Glassmorphism */
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --backdrop-blur: blur(10px);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Inter', 'Oxygen', sans-serif;
+    background: linear-gradient(135deg,
+            hsl(220, 15%, 8%) 0%,
+            hsl(220, 15%, 12%) 50%,
+            hsl(220, 15%, 10%) 100%);
+    background-attachment: fixed;
+    color: var(--text-main);
+    line-height: 1.6;
+    font-size: 16px;
+    min-height: 100vh;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary);
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    color: var(--primary-light);
+    text-shadow: var(--glow-primary);
+}
+
+ul {
+    list-style: none;
+}
+
+/* =========================================
+   2. NAVBAR
+   ========================================= */
+.navbar {
+    background: var(--glass-bg);
+    backdrop-filter: var(--backdrop-blur);
+    -webkit-backdrop-filter: var(--backdrop-blur);
+    border-bottom: 1px solid var(--glass-border);
+    color: white;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+}
+
+.nav-brand a {
+    color: white;
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    transition: all 0.3s ease;
+}
+
+.nav-brand a:hover {
+    filter: brightness(1.2);
+    text-shadow: none;
+}
+
+.nav-links a {
+    color: var(--text-muted);
+    margin: 0 15px;
+    font-weight: 500;
+    position: relative;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.nav-links a::before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    transform: translateX(-50%);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: white;
+    background: var(--glass-bg);
+}
+
+.nav-links a:hover::before,
+.nav-links a.active::before {
+    width: 80%;
+}
+
+.nav-auth {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* =========================================
+   3. LAYOUT & GRID SYSTEM
+   ========================================= */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.main-layout {
+    display: grid;
+    grid-template-columns: 220px 1fr 280px;
+    gap: 30px;
+    align-items: start;
+}
+
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+}
+
+/* =========================================
+   4. CARDS & GLASSMORPHISM UI
+   ========================================= */
+.card {
+    background: var(--glass-bg);
+    backdrop-filter: var(--backdrop-blur);
+    -webkit-backdrop-filter: var(--backdrop-blur);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius);
+    padding: 24px;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--border-light);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.5);
+}
+
+h1,
+h2,
+h3 {
+    color: var(--text-main);
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+h2 {
+    font-size: 1.6rem;
+}
+
+h3 {
+    font-size: 1.3rem;
+}
+
+.text-muted {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid var(--border);
+    margin: 20px 0;
+    opacity: 0.5;
+}
+
+/* =========================================
+   5. BUTTONS WITH INTERACTIVE STATES
+   ========================================= */
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.btn:active::before {
+    width: 300px;
+    height: 300px;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    box-shadow: 0 4px 15px rgba(74, 144, 226, 0.4);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--glow-primary), var(--glow-secondary);
+    filter: brightness(1.1);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+    background: linear-gradient(135deg, var(--secondary), var(--primary));
+}
+
+.btn-login {
+    background: transparent;
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+    margin-right: 10px;
+}
+
+.btn-login:hover {
+    color: white;
+    border-color: var(--primary);
+    background: var(--glass-bg);
+}
+
+.btn-register {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
+}
+
+.btn-register:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--glow-primary);
+    color: white;
+}
+
+.btn-register:active {
+    transform: translateY(0);
+    background: linear-gradient(135deg, var(--secondary), var(--primary));
+}
+
+/* =========================================
+   6. FORMS
+   ========================================= */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+    width: 100%;
+    padding: 12px;
+    background: var(--glass-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    color: var(--text-main);
+    transition: all 0.3s ease;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: var(--text-muted);
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    background: var(--bg-card-hover);
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
+}
+
+/* =========================================
+   7. SIDEBARS
+   ========================================= */
+.sidebar-menu .menu-item {
+    display: block;
+    padding: 12px 16px;
+    color: var(--text-main);
+    border-radius: 8px;
+    margin-bottom: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.sidebar-menu .menu-item:hover {
+    background: var(--glass-bg);
+    color: var(--primary);
+    transform: translateX(5px);
+}
+
+.sidebar-menu .menu-item.active {
+    background: var(--glass-bg);
+    font-weight: bold;
+    border-left: 3px solid var(--primary);
+    box-shadow: var(--glow-primary);
+}
+
+/* =========================================
+   8. QUESTION FEED
+   ========================================= */
+.feed-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.question-card {
+    display: flex;
+    background: var(--glass-bg);
+    backdrop-filter: var(--backdrop-blur);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius);
+    padding: 20px;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+}
+
+.question-card:hover {
+    border-color: var(--primary);
+    background: var(--bg-card-hover);
+    transform: translateX(5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+}
+
+.stats-container {
+    display: flex;
+    flex-direction: column;
+    min-width: 60px;
+    margin-right: 20px;
+    text-align: center;
+    gap: 10px;
+}
+
+.stat-box {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.stat-value {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--primary);
+}
+
+.status-answered {
+    border: 1px solid var(--success);
+    border-radius: 6px;
+    color: var(--success);
+    padding: 4px 0;
+    box-shadow: 0 0 10px hsla(142, 71%, 45%, 0.3);
+}
+
+.status-answered .stat-value {
+    color: var(--success);
+}
+
+.question-content {
+    flex-grow: 1;
+}
+
+.question-title {
+    margin: 0 0 8px 0;
+    font-size: 1.15rem;
+}
+
+.question-title a {
+    color: var(--primary);
+    transition: all 0.3s ease;
+}
+
+.question-title a:hover {
+    color: var(--primary-light);
+}
+
+.question-excerpt {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+    overflow: hidden;
+}
+
+/* =========================================
+   9. TAGS
+   ========================================= */
+.tags-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tag {
+    background: var(--glass-bg);
+    border: 1px solid var(--border);
+    color: var(--primary);
+    font-size: 0.85rem;
+    padding: 4px 12px;
+    border-radius: 6px;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.tag:hover {
+    border-color: var(--primary);
+    background: var(--bg-card-hover);
+    box-shadow: var(--glow-primary);
+    transform: translateY(-2px);
+}
+
+.meta-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 12px;
+}
+
+.user-info {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.author-name {
+    color: var(--primary);
+    font-weight: 500;
+}
+
+/* =========================================
+   10. ROADMAPS
+   ========================================= */
+.roadmap-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.roadmap-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.roadmap-card .btn {
+    margin-top: auto;
+}
+
+/* =========================================
+   11. RESPONSIVE (Mobile)
+   ========================================= */
+@media (max-width: 900px) {
+    .main-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .content-feed {
+        order: 1;
+    }
+
+    .sidebar-left {
+        order: 2;
+    }
+
+    .sidebar-right {
+        order: 3;
+    }
+
+    .sidebar-left,
+    .sidebar-right {
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .navbar {
+        padding: 0 1rem;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .question-card {
+        flex-direction: column;
+    }
+
+    .stats-container {
+        flex-direction: row;
+        margin-bottom: 15px;
+        margin-right: 0;
+        justify-content: flex-start;
+        gap: 20px;
+    }
+}
+
+/* =========================================
+   12. ANIMATIONS & EFFECTS
+   ========================================= */
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.8;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card {
+    animation: slideIn 0.5s ease-out;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-body);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--glass-bg);
+    border-radius: 5px;
+    border: 2px solid var(--bg-body);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--border);
+}
+
+/* =========================================
+   13. LOGOUT BUTTON (FIXED BOTTOM RIGHT)
+   ========================================= */
+.logout-btn-fixed {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    padding: 12px 24px;
+    background: linear-gradient(135deg, var(--danger), hsl(0, 84%, 50%));
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(231, 76, 60, 0.4);
+    transition: all 0.3s ease;
+    z-index: 999;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.logout-btn-fixed:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(231, 76, 60, 0.6);
+    filter: brightness(1.1);
+}
+
+.logout-btn-fixed:active {
+    transform: translateY(0);
+}
+
+@media (max-width: 600px) {
+    .logout-btn-fixed {
+        bottom: 20px;
+        right: 20px;
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+}
