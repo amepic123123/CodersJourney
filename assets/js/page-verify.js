@@ -1,4 +1,4 @@
-import { apiFetch, getQueryParam } from "./api.js";
+import { apiFetch, getQueryParam } from "./api.js?v=202512291200";
 
 const email = getQueryParam("email") || "";
 

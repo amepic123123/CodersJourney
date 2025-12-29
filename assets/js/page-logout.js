@@ -1,4 +1,4 @@
-import { apiFetch } from "./api.js";
+import { apiFetch } from "./api.js?v=202512291200";
 
 const statusEl = document.getElementById("logout-status");
 

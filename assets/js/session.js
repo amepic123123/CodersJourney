@@ -1,4 +1,4 @@
-import { apiFetch } from "./api.js";
+import { apiFetch } from "./api.js?v=202512291200";
 
 // This endpoint does not exist in your current backend yet.
 // You said you'll adjust your backend to match his endpoints, so implement:

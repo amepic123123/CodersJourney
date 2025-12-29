@@ -1,5 +1,5 @@
-import { apiFetch, escapeHtml } from "./api.js";
-import { renderNavAuth } from "./session.js";
+import { apiFetch, escapeHtml } from "./api.js?v=202512291200";
+import { renderNavAuth } from "./session.js?v=202512291200";
 
 await renderNavAuth();
 

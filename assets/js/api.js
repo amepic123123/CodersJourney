@@ -17,16 +17,17 @@ function resolveApiBase() {
     return `${origin}/webProjectBackend`;
   }
 
-  // Production (no api subdomain yet): recommended split is
-  // - frontend: https://www.codersjourney.space (GitHub Pages)
-  // - backend:  https://codersjourney.space (Cloudflare Tunnel)
-  // This keeps cookies on the same parent domain and avoids needing api.*.
-  if (host === "www.codersjourney.space") {
-    return "https://codersjourney.space/webProjectBackend";
+  // Production (GitHub Pages/custom domain): always call the dedicated API host.
+  if (
+    host === "codersjourney.space" ||
+    host === "www.codersjourney.space" ||
+    host.endsWith(".github.io")
+  ) {
+    return "https://api.codersjourney.space";
   }
 
-  // If you're serving both frontend + backend from the same host, keep it same-origin.
-  return `${origin}/webProjectBackend`;
+  // Safe default: prefer the API host rather than assuming /webProjectBackend exists.
+  return "https://api.codersjourney.space";
 }
 
 export const API_BASE = resolveApiBase();
@@ -56,7 +57,14 @@ export async function apiFetch(path, options = {}) {
     };
   }
 
-  const res = await fetch(API_BASE + path, {
+  const isAbsoluteUrl = /^https?:\/\//i.test(String(path));
+  const url = isAbsoluteUrl
+    ? String(path)
+    : path && String(path).startsWith("/")
+      ? API_BASE + String(path)
+      : `${API_BASE}/${String(path ?? "")}`;
+
+  const res = await fetch(url, {
     credentials: "include",
     ...init,
   });
