@@ -592,6 +592,56 @@ textarea:focus {
 }
 
 /* =========================================
+   9.5. QUESTION DETAIL (Voting / Answers)
+   ========================================= */
+.post-layout {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.vote-sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    min-width: 50px;
+}
+
+.vote-btn {
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+.vote-btn:hover {
+    border-color: var(--primary);
+    color: var(--text-main);
+    background: var(--glass-bg);
+}
+
+.vote-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.vote-count {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.best-answer {
+    border: 2px solid var(--success);
+    background: hsla(142, 71%, 45%, 0.08);
+}
+
+/* =========================================
    10. ROADMAPS
    ========================================= */
 .roadmap-grid {
@@ -638,11 +688,68 @@ textarea:focus {
 
 @media (max-width: 600px) {
     .navbar {
-        padding: 0 1rem;
+        height: auto;
+        flex-wrap: wrap;
+        padding: 12px 1rem;
+        gap: 10px;
+    }
+
+    .nav-brand {
+        flex: 1 1 100%;
+    }
+
+    .nav-brand a {
+        font-size: 1.35rem;
+    }
+
+    .nav-auth {
+        width: 100%;
+        justify-content: flex-end;
+        flex-wrap: wrap;
+    }
+
+    .container {
+        padding: 12px;
+    }
+
+    .main-layout {
+        gap: 16px;
+    }
+
+    .card {
+        padding: 16px;
+    }
+
+    .btn {
+        padding: 10px 16px;
+        font-size: 0.95rem;
     }
 
     .nav-links {
         display: none;
+    }
+
+    .feed-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .meta-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .post-layout {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .vote-sidebar {
+        flex-direction: row;
+        justify-content: flex-start;
+        min-width: 0;
     }
 
     .question-card {
