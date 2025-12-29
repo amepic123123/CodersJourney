@@ -1,5 +1,5 @@
-import { apiFetch, getQueryParam } from "./api.js?v=202512291200";
-import { getSession, renderNavAuth } from "./session.js?v=202512291200";
+import { apiFetch, getQueryParam } from "./api.js";
+import { getSession, renderNavAuth } from "./session.js";
 
 await renderNavAuth();
 
@@ -40,9 +40,10 @@ form.addEventListener("submit", async (e) => {
   const password = String(fd.get("password") ?? "");
 
   try {
-    await apiFetch("/actions/login_logic.php", {
+    await apiFetch("/api/auth/login", {
       method: "POST",
-      body: { email, password },
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ identifier: email, password }),
     });
 
     window.location.href = "index.html";
