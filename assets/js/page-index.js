@@ -13,6 +13,8 @@ function renderQuestion(q) {
   const description = q?.description ?? "";
   const tags = q?.tags ?? "";
   const voteCount = q?.vote_count ?? 0;
+  const rawAnswersCount = q?.answer_count ?? q?.answers_count ?? q?.answersCount ?? q?.answers ?? 0;
+  const answersCount = Array.isArray(rawAnswersCount) ? rawAnswersCount.length : (Number(rawAnswersCount) || 0);
   const viewCount = q?.view_count ?? 0;
   const userId = q?.user_id ?? q?.asked_by ?? 0;
   const username = q?.username ?? (userId ? `User #${userId}` : "");
@@ -31,7 +33,7 @@ function renderQuestion(q) {
           <span class="stat-label">votes</span>
         </div>
         <div class="stat-box">
-          <span class="stat-value">0</span>
+          <span class="stat-value">${escapeHtml(answersCount)}</span>
           <span class="stat-label">answers</span>
         </div>
         <div class="stat-box">
