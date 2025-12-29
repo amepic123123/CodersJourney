@@ -69,7 +69,7 @@ function renderQuestion(q, session) {
           ${isOwner ? `<button id="delete-question-btn" class="btn" type="button" style="background: var(--danger); color: white; white-space: nowrap;">Delete</button>` : ""}
         </div>
 
-        <div style="line-height: 1.6; color: #333; margin-bottom: 1.5rem;">${escapeHtml(description).replaceAll("\n", "<br>")}</div>
+        <div style="line-height: 1.6; color: var(--text-main); margin-bottom: 1.5rem;">${escapeHtml(description).replaceAll("\n", "<br>")}</div>
 
         <div class="meta-footer">
           <div class="tags-list">
@@ -80,7 +80,7 @@ function renderQuestion(q, session) {
 
           <div class="user-info">
             <span class="text-muted">asked by</span>
-            <a href="profile.html?id=${encodeURIComponent(userId)}"><strong style="color: #4a90e2;">${escapeHtml(username)}</strong></a>
+            <a href="profile.html?id=${encodeURIComponent(userId)}"><strong style="color: var(--primary);">${escapeHtml(username)}</strong></a>
             <span class="text-muted">${createdAt ? `on ${escapeHtml(createdAt)}` : ""}</span>
           </div>
         </div>
