@@ -84,8 +84,6 @@ function renderRoadmap(map) {
         genBtn.textContent = "Generating…";
 
         try {
-          // Use the existing app backend endpoint (not the /actions shims).
-          // Backend expects JSON.
           const res = await apiFetch("/api/roadmaps/recommend", {
             method: "POST",
             headers: { "Content-Type": "application/json" },

@@ -75,9 +75,11 @@
     }
 
     .step-content {
-      background: white;
+      background: var(--glass-bg);
+      -webkit-backdrop-filter: var(--backdrop-blur);
+      backdrop-filter: var(--backdrop-blur);
       padding: 1.5rem;
-      border: 1px solid #e1e4e8;
+      border: 1px solid var(--glass-border);
       border-radius: 8px;
       flex-grow: 1;
     }
