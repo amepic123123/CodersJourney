@@ -42,15 +42,15 @@ function renderRoadmap(map) {
         <span class="badge ${badgeClass(difficulty)}">${escapeHtml(difficulty)}</span>
       </div>
 
-      <h3 style="font-size: 1.2rem; margin-bottom:10px;">
-        <a href="roadmap_view.html?id=${encodeURIComponent(id)}" style="color:#2c3e50; text-decoration:none;">${escapeHtml(title)}</a>
+      <h3 class="roadmap-title">
+        <a href="roadmap_view.html?id=${encodeURIComponent(id)}">${escapeHtml(title)}</a>
       </h3>
 
-      <p style="font-size:0.9rem; color:#555; line-height:1.5; flex-grow:1;">${escapeHtml(description)}</p>
+      <p class="roadmap-description">${escapeHtml(description)}</p>
 
-      <div style="margin-top:15px; border-top:1px solid #eee; padding-top:10px;">
+      <div class="roadmap-meta">
         <div class="steps-count">📚 <strong>${escapeHtml(stepsCount)}</strong> Steps</div>
-        <div style="font-size:0.85rem; color:#888; margin-top:5px;">
+        <div class="roadmap-submeta">
           ${creatorName ? `Created by <strong>${escapeHtml(creatorName)}</strong>` : ""}
           ${isVerified ? " <span title=\"Verified Author\">✅</span>" : ""}
         </div>

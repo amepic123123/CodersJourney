@@ -18,13 +18,13 @@ export async function renderNavAuth() {
   const session = await getSession();
   if (session && session.logged_in) {
     el.innerHTML = `
-      <span style="color:white; margin-right:15px;">Welcome!</span>
-      <a href="logout.html" class="btn-register" style="background:#e74c3c;">Logout</a>
+      <a href="profile.html" class="btn btn-primary">Profile</a>
+      <a href="logout.html" class="btn btn-primary">Logout</a>
     `;
   } else {
     el.innerHTML = `
-      <a href="login.html" class="btn-login">Log In</a>
-      <a href="register.html" class="btn-register">Sign Up</a>
+      <a href="login.html" class="btn btn-primary">Log In</a>
+      <a href="register.html" class="btn btn-primary">Sign Up</a>
     `;
   }
 }

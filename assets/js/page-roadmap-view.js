@@ -12,7 +12,7 @@ const percentEl = document.getElementById("percent-display");
 const errorEl = document.getElementById("roadmap-error");
 
 function setError(msg) {
-  errorEl.style.display = "block";
+  errorEl.classList.remove("is-hidden");
   errorEl.textContent = msg;
 }
 
@@ -29,7 +29,7 @@ function renderStep(step) {
 
   return `
     <li class="step-item">
-      <div style="background: white; padding: 10px; border-radius: 50%; border: 1px solid #ddd;">
+      <div style="background: var(--glass-bg); padding: 10px; border-radius: 50%; border: 1px solid var(--glass-border);">
         <input type="checkbox" class="step-check" data-step-id="${escapeHtml(id)}" ${completed ? "checked" : ""}>
       </div>
       <div class="step-content">

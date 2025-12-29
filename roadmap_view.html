@@ -10,7 +10,8 @@
   <style>
     /* Progress Bar Styles */
     .progress-container {
-      background: #e1e4e8;
+      background: var(--bg-card);
+      border: 1px solid var(--glass-border);
       border-radius: 8px;
       height: 20px;
       width: 100%;
@@ -19,7 +20,7 @@
     }
 
     .progress-bar {
-      background: #27ae60;
+      background: var(--success);
       height: 100%;
       width: 0%;
       transition: width 0.3s ease;
@@ -28,7 +29,7 @@
     .progress-text {
       text-align: right;
       font-size: 0.9rem;
-      color: #666;
+      color: var(--text-muted);
       margin-bottom: 5px;
     }
 
@@ -47,7 +48,7 @@
       top: 0;
       bottom: 0;
       width: 2px;
-      background: #e1e4e8;
+      background: var(--border);
       z-index: 0;
     }
 
@@ -75,9 +76,11 @@
     }
 
     .step-content {
-      background: white;
+      background: var(--glass-bg);
+      -webkit-backdrop-filter: var(--backdrop-blur);
+      backdrop-filter: var(--backdrop-blur);
       padding: 1.5rem;
-      border: 1px solid #e1e4e8;
+      border: 1px solid var(--glass-border);
       border-radius: 8px;
       flex-grow: 1;
     }
@@ -88,7 +91,7 @@
     }
 
     .step-desc {
-      color: #666;
+      color: var(--text-muted);
       font-size: 0.9rem;
     }
   </style>
@@ -102,9 +105,6 @@
       <a href="ask.html">Ask Question</a>
     </div>
     <div class="nav-auth">
-      <a href="login.html" class="btn btn-primary"
-        style="background: linear-gradient(135deg, var(--danger), hsl(0, 84%, 50%));">🚪 Logout</a>
-      <a href="profile.html" class="btn btn-primary" style="margin-left: 10px;">👤 Profile</a>
       <div id="nav-auth"></div>
     </div>
   </nav>
@@ -117,7 +117,7 @@
         <a href="tags.html" class="menu-item">🏷️ Tags</a>
       </div>
 
-      <div class="card" style="margin-top: 20px;">
+      <div class="card mt-20">
         <h3>Author</h3>
         <p id="roadmap-author" class="text-muted">—</p>
       </div>
@@ -126,9 +126,9 @@
     <main class="content-feed">
       <div class="card" id="roadmap-card">
         <h1 id="roadmap-title">Roadmap</h1>
-        <p id="roadmap-description" style="color: #555; margin-top: 10px;"></p>
+        <p id="roadmap-description" class="text-muted mt-10"></p>
 
-        <div style="margin-top: 30px;">
+        <div class="mt-30">
           <div class="progress-text">
             <span id="percent-display">0</span>% Complete
           </div>
@@ -138,10 +138,10 @@
         </div>
       </div>
 
-      <h3 style="margin: 30px 0 20px;">Your Journey</h3>
+      <h3 class="my-30-20">Your Journey</h3>
       <ul class="step-list" id="steps-list"></ul>
 
-      <div id="roadmap-error" class="card" style="padding:16px; display:none;"></div>
+      <div id="roadmap-error" class="card p-16 is-hidden"></div>
     </main>
 
     <aside class="sidebar-right"></aside>

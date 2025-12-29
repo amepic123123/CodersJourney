@@ -88,8 +88,8 @@ ul {
    ========================================= */
 .navbar {
     background: var(--glass-bg);
-    backdrop-filter: var(--backdrop-blur);
     -webkit-backdrop-filter: var(--backdrop-blur);
+    backdrop-filter: var(--backdrop-blur);
     border-bottom: 1px solid var(--glass-border);
     color: white;
     height: 70px;
@@ -160,6 +160,42 @@ ul {
 }
 
 /* =========================================
+   ROADMAPS (Listing)
+   ========================================= */
+.roadmap-title {
+    margin: 0 0 10px 0;
+    font-size: 1.2rem;
+}
+
+.roadmap-title a {
+    color: var(--text-main);
+    text-decoration: none;
+}
+
+.roadmap-title a:hover {
+    color: var(--primary-light);
+}
+
+.roadmap-description {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+    flex-grow: 1;
+}
+
+.roadmap-meta {
+    margin-top: 15px;
+    border-top: 1px solid var(--border);
+    padding-top: 10px;
+}
+
+.roadmap-submeta {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: 5px;
+}
+
+/* =========================================
    3. LAYOUT & GRID SYSTEM
    ========================================= */
 .container {
@@ -187,14 +223,50 @@ ul {
    ========================================= */
 .card {
     background: var(--glass-bg);
-    backdrop-filter: var(--backdrop-blur);
     -webkit-backdrop-filter: var(--backdrop-blur);
+    backdrop-filter: var(--backdrop-blur);
     border: 1px solid var(--glass-border);
     border-radius: var(--radius);
     padding: 24px;
     margin-bottom: 20px;
     box-shadow: var(--shadow);
     transition: all 0.3s ease;
+}
+
+/* =========================================
+   UTILITY (keep HTML clean)
+   ========================================= */
+.mt-10 { margin-top: 10px; }
+.mt-20 { margin-top: 20px; }
+.mt-30 { margin-top: 30px; }
+.mb-8 { margin-bottom: 8px; }
+.mb-12 { margin-bottom: 12px; }
+.mb-20 { margin-bottom: 20px; }
+.my-30-20 { margin: 30px 0 20px; }
+.p-16 { padding: 16px; }
+.nowrap { white-space: nowrap; }
+.flex-1 { flex: 1; }
+.is-hidden { display: none; }
+
+.empty-state {
+    text-align: center;
+    padding: 40px;
+}
+
+.gen-form {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.gen-error {
+    display: none;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 12px;
+    background: hsla(0, 84%, 60%, 0.15);
+    border: 1px solid hsla(0, 84%, 60%, 0.35);
+    color: var(--text-main);
 }
 
 .card:hover {
@@ -400,6 +472,7 @@ textarea:focus {
 .question-card {
     display: flex;
     background: var(--glass-bg);
+    -webkit-backdrop-filter: var(--backdrop-blur);
     backdrop-filter: var(--backdrop-blur);
     border: 1px solid var(--glass-border);
     border-radius: var(--radius);

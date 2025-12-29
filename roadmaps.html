@@ -16,9 +16,6 @@
       <a href="ask.html">Ask Question</a>
     </div>
     <div class="nav-auth">
-      <a href="login.html" class="btn btn-primary"
-        style="background: linear-gradient(135deg, var(--danger), hsl(0, 84%, 50%));">🚪 Logout</a>
-      <a href="profile.html" class="btn btn-primary" style="margin-left: 10px;">👤 Profile</a>
       <div id="nav-auth"></div>
     </div>
   </nav>
@@ -38,24 +35,21 @@
         <p class="text-muted">Follow step-by-step guides created by the community.</p>
       </div>
 
-      <div class="card" style="margin-bottom: 20px;">
-        <h3 style="margin-bottom: 8px;">Generate a Roadmap</h3>
-        <p class="text-muted" style="margin-bottom: 12px;">Describe what you want to learn, and we’ll create a
+      <div class="card mb-20">
+        <h3 class="mb-8">Generate a Roadmap</h3>
+        <p class="text-muted mb-12">Describe what you want to learn, and we’ll create a
           step-by-step plan.</p>
 
-        <div id="gen-error"
-          style="display:none; background: #f8d7da; color: #721c24; padding: 10px; border-radius: 4px; margin-bottom: 12px;">
-        </div>
+        <div id="gen-error" class="gen-error"></div>
 
-        <form id="gen-form" style="display:flex; gap: 10px; align-items: center;">
-          <input id="gen-goal" name="goal" type="text" placeholder="e.g., become a frontend developer" style="flex: 1;"
-            required />
-          <button id="gen-btn" type="submit" class="btn btn-primary" style="white-space: nowrap;">Generate</button>
+        <form id="gen-form" class="gen-form">
+          <input id="gen-goal" name="goal" type="text" placeholder="e.g., become a frontend developer" class="flex-1" required />
+          <button id="gen-btn" type="submit" class="btn btn-primary nowrap">Generate</button>
         </form>
       </div>
 
       <div class="roadmap-grid" id="roadmaps-grid"></div>
-      <div id="roadmaps-empty" class="card" style="text-align:center; padding: 40px; display:none;">
+      <div id="roadmaps-empty" class="card empty-state is-hidden">
         <h3>No roadmaps found.</h3>
       </div>
     </main>
