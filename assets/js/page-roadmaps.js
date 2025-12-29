@@ -85,10 +85,11 @@ function renderRoadmap(map) {
 
         try {
           // Use the existing app backend endpoint (not the /actions shims).
-          // Send as a classic form POST to avoid CORS preflight issues.
+          // Backend expects JSON.
           const res = await apiFetch("/api/roadmaps/recommend", {
             method: "POST",
-            body: { goal },
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ goal }),
           });
 
           const roadmapId = res?.roadmap_id ?? res?.roadmap?.roadmap_id;
