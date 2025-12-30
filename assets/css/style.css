@@ -156,7 +156,7 @@ ul {
 .nav-auth {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 0;
 }
 
 /* =========================================
@@ -829,7 +829,8 @@ textarea:focus {
     font-size: 1rem;
     cursor: pointer;
     text-align: center;
-    margin-left: 10px;
+    margin-left: 0;
+    margin-right: 0;
     box-shadow: 0 2px 8px rgba(231, 76, 60, 0.15);
     transition: background 0.2s, filter 0.2s;
     vertical-align: middle;
