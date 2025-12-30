@@ -35,7 +35,6 @@ export async function renderNavAuth() {
 
   const session = await getSession();
   if (session && session.logged_in) {
-    // Persist API base for building asset URLs without importing api.js (avoids circular deps).
     if (!window.__API_BASE__) {
       try {
         const mod = await import("./api.js");
@@ -59,7 +58,7 @@ export async function renderNavAuth() {
         }
         <span style="color:white; margin-left:10px;">Profile</span>
       </a>
-      <a href="logout.html" class="btn-register" style="background:#e74c3c;">Logout</a>
+      <a href="logout.html" class="dropdown-logout">Logout</a>
     `;
   } else {
     el.innerHTML = `
