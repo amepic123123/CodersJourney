@@ -819,8 +819,7 @@ textarea:focus {
    13. LOGOUT BUTTON (FIXED BOTTOM RIGHT)
    ========================================= */
 .dropdown-logout {
-    display: block;
-    width: 100%;
+    display: inline-block;
     padding: 10px 20px;
     background: linear-gradient(135deg, var(--danger), hsl(0, 84%, 50%));
     color: white;
@@ -829,10 +828,11 @@ textarea:focus {
     font-weight: 600;
     font-size: 1rem;
     cursor: pointer;
-    text-align: left;
-    margin: 0;
+    text-align: center;
+    margin-left: 10px;
     box-shadow: 0 2px 8px rgba(231, 76, 60, 0.15);
     transition: background 0.2s, filter 0.2s;
+    vertical-align: middle;
 }
 .dropdown-logout:hover {
     filter: brightness(1.1);
